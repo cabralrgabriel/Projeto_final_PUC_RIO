@@ -51,6 +51,19 @@ Ainda assim, após análise de descrições sorteadas aleatoriamente, conseguim
 
 #### 2.2 Gerando modelo de classificação
 
+Agora, com o sucesso na definição das variáveis independentes para cada descrição, podemos treinar um modelo de classificação e assim conseguirmos inferir novas descrições.
+
+Antes de treinar o modelo em si, fizemos alguns processos para estruturar a base. No caso, repetimos as primeiras etapas de pré-processamento do texto que fizemos na primeira parte do trabalho. São eles: : remoção de acentos, transformação do texto para caixa baixa, remoção de caracteres especiais e remoção de stopwords.
+
+Além desses, uma última etapa de pré-processamento foi realizada. Após a divisão das bases de treino e teste, geramos uma matriz de contagem de palavras. Essa matriz desconsidera a ordem e a gramática das palavras, porém respeita as ocorrências de cada palavra em cada documento.
+
+Tendo gerado essa matriz, podemos agora treinar o modelo de classificação. No nosso trabalho, definimos o modelo conhecido como Random Forest. Esses modelos, amplamente utilizados na ciência dos dados, geram n árvores de decisão ao longo do seu treinamento. No final, a resposta da floresta será justamente a classe mais selecionada dentre todas as árvores. Um bom exemplo do funcionamento desse tipo de algoritmo pode ser visto na imagem abaixo:
+
+![image](https://user-images.githubusercontent.com/85505337/137637156-bc8c3166-01c9-41dc-b31f-67a862813e57.png)
+
+Tão logo encerrado o processo de treinamento do modelo, podemos analisar o seu desempenho. Para isso iremos confrontar suas inferências com as variáveis independentes já conhecidas da base de teste. O resultado pode ser visto abaixo:
+
+![image](https://user-images.githubusercontent.com/85505337/137637283-95604b01-fc1e-4438-9ec5-d3cfe3beda4c.png)
 
 ### 3. Resultados
 
