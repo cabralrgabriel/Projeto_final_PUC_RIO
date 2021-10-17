@@ -1,4 +1,4 @@
-# Classuficando Descrições de Roubo e Furto
+# Classificando Descrições de Roubo e Furto
 
 #### Aluno: [Gabriel Cabral](https://github.com/cabralrgabriel )
 #### Orientadora: [Manoela Kohler](https://github.com/manoelakohler).
