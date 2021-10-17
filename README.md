@@ -1,4 +1,4 @@
-# Título do Trabalho
+# Classuficando Descrições de Roubo e Furto
 
 #### Aluno: [Gabriel Cabral](https://github.com/cabralrgabriel )
 #### Orientadora: [Manoela Kohler](https://github.com/manoelakohler).
@@ -65,23 +65,17 @@ Tão logo encerrado o processo de treinamento do modelo, podemos analisar o seu 
 
 ![image](https://user-images.githubusercontent.com/85505337/137637283-95604b01-fc1e-4438-9ec5-d3cfe3beda4c.png)
 
-### 3. Resultados
+### 3. Conclusões
 
-Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin pulvinar nisl vestibulum tortor fringilla, eget imperdiet neque condimentum. Proin vitae augue in nulla vehicula porttitor sit amet quis sapien. Nam rutrum mollis ligula, et semper justo maximus accumsan. Integer scelerisque egestas arcu, ac laoreet odio aliquet at. Sed sed bibendum dolor. Vestibulum commodo sodales erat, ut placerat nulla vulputate eu. In hac habitasse platea dictumst. Cras interdum bibendum sapien a vehicula.
+Durante o presente trabalho, pudemos explorar algoritmos de aprendizado não supervisionado, esse num primeiro momento, e também supervisionado. Conseguimos assim, abrangendo ambas as técnicas, gerar um modelo de classificação em uma base a priori sem uma variável independente.
 
-Proin feugiat nulla sem. Phasellus consequat tellus a ex aliquet, quis convallis turpis blandit. Quisque auctor condimentum justo vitae pulvinar. Donec in dictum purus. Vivamus vitae aliquam ligula, at suscipit ipsum. Quisque in dolor auctor tortor facilisis maximus. Donec dapibus leo sed tincidunt aliquam.
+Utilizamos um  algoritmo de Latent Dirichlet Allocation para segmentar em tópicos as nossas descrições. Dessa forma, conseguimos ter confiança em termos uma base classificada, com descrições de roubo e de furto.
 
-### 4. Conclusões
-
-Durante o presente trabalho, pudemos explorar algoritmos de aprendizado não supervisionado, esse num primeiro momento, e também supervisionado. Conseguimos assim, abrangendo ambas as técnicas, gerar um modelo de classificação em uma base a priori sem uma variável independente. 
-
-Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin pulvinar nisl vestibulum tortor fringilla, eget imperdiet neque condimentum. Proin vitae augue in nulla vehicula porttitor sit amet quis sapien. Nam rutrum mollis ligula, et semper justo maximus accumsan. Integer scelerisque egestas arcu, ac laoreet odio aliquet at. Sed sed bibendum dolor. Vestibulum commodo sodales erat, ut placerat nulla vulputate eu. In hac habitasse platea dictumst. Cras interdum bibendum sapien a vehicula.
-
-Proin feugiat nulla sem. Phasellus consequat tellus a ex aliquet, quis convallis turpis blandit. Quisque auctor condimentum justo vitae pulvinar. Donec in dictum purus. Vivamus vitae aliquam ligula, at suscipit ipsum. Quisque in dolor auctor tortor facilisis maximus. Donec dapibus leo sed tincidunt aliquam.
+Após isso, treinamos um modelo de classificação, agora usando um algoritmo de Random Forest. Conseguimos então, um modelo de classificação para predizer, no momento do recebimento de uma nova descrição, se ela se trata de um roubo ou de um furto.
 
 ---
 
-Matrícula: 123.456.789
+Matrícula: 192.671.181
 
 Pontifícia Universidade Católica do Rio de Janeiro
 
