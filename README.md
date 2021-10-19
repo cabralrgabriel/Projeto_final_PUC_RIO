@@ -28,7 +28,7 @@ Teremos assim, um modelo de classificação para novos sinistros. E isso a parti
 
 ### 2. Modelagem
 
-#### 2.1 Gerando as variáveis independentes
+#### 2.1 Gerando as variáveis independentes (modelagem não supervisionada)
 
 Tendo em vista a ausência de variáveis independentes, não é possível treinar, em um primeiro momento, algoritmos de classificação. Antes dessa etapa, iremos explorar a nossa base e treinar algoritmos não supervisionados de segmentação por tópicos. O nosso objetivo nesse momento é definir, através desses tópicos, quando a descrição se refere a um furto e quando ela se refere a um roubo.
 
@@ -40,29 +40,47 @@ Não vamos focar, aqui, nos modelos dos dois primeiros grupos. O terceiro grupo,
 
 Passada toda a parte de pré-processamento, entramos de fato no treinamento do modelo de segmentação. Aqui, escolhemos fazer a modelagem através de Latent Dirichlet Allocation — LDA. Esse é um dos mais populares modelos de segmentação por tópicos que existem na ciência de dados. Basicamente, ele busca definir a probabilidade de um tópico conter um determinado documento com base nas palavras que compõem esse documento. Ele se baseia em dois princípios, que cada documento é uma mistura de tópicos (com mais ou menos identificação com cada tópico) e cada tópico é uma mistura de palavras.
 
-No nosso caso, após alguns testes, conseguimos definir 4 tópicos como o número ideal. As nuvens de palavras de cada tópico nos ajuda a entender os mesmos.
+Veremos melhor os resultados dessa etapa do trabalho na sessas 3.1.
 
-![image](https://user-images.githubusercontent.com/85505337/137609850-1cb39c51-0295-4848-95fc-6658a4313dd4.png)
+#### 2.2 Gerando modelo de classificação (modelagem supervisionada)
 
-Ainda assim, após análise de descrições sorteadas aleatoriamente, conseguimos inferir que os tópicos 0 e 2 se aproximam mais de narrações de roubo enquanto as descrições dos tópicos 1 e 3 mais se parecem com furtos. Conseguimos assim, termos confiança na variável independente que precisamos para realizarmos o treinamento de um modelo de classificação, que nos ajude na inferência de novas descrições.
-
-#### 2.2 Gerando modelo de classificação
-
-Agora, com o sucesso na definição das variáveis independentes para cada descrição, podemos treinar um modelo de classificação e assim conseguirmos inferir novas descrições.
+Após o sucesso na definição das variáveis independentes para cada descrição, podemos treinar um modelo de classificação e assim conseguirmos inferir novas descrições.
 
 Antes de treinar o modelo em si, fizemos alguns processos para estruturar a base. No caso, repetimos as primeiras etapas de pré-processamento do texto que fizemos na primeira parte do trabalho. São eles: : remoção de acentos, transformação do texto para caixa baixa, remoção de caracteres especiais e remoção de stopwords.
 
 Além desses, uma última etapa de pré-processamento foi realizada. Após a divisão das bases de treino e teste, geramos uma matriz de contagem de palavras. Essa matriz desconsidera a ordem e a gramática das palavras, porém respeita as ocorrências de cada palavra em cada documento.
 
-Tendo gerado essa matriz, podemos agora treinar o modelo de classificação. No nosso trabalho, definimos o modelo conhecido como Random Forest. Esses modelos, amplamente utilizados na ciência dos dados, geram n árvores de decisão ao longo do seu treinamento. No final, a resposta da floresta será justamente a classe mais selecionada dentre todas as árvores. Um bom exemplo do funcionamento desse tipo de algoritmo pode ser visto na imagem abaixo:
+Tendo gerado essa matriz, podemos então treinar o modelo de classificação. No nosso trabalho, definimos o modelo conhecido como Random Forest. Esses modelos, amplamente utilizados na ciência dos dados, geram n árvores de decisão ao longo do seu treinamento. No final, a resposta da floresta será justamente a classe mais selecionada dentre todas as árvores. Um bom exemplo do funcionamento desse tipo de algoritmo pode ser visto na imagem abaixo:
 
 ![image](https://user-images.githubusercontent.com/85505337/137637156-bc8c3166-01c9-41dc-b31f-67a862813e57.png)
 
-Tão logo encerrado o processo de treinamento do modelo, podemos analisar o seu desempenho. Para isso iremos confrontar suas inferências com as variáveis independentes já conhecidas da base de teste. O resultado pode ser visto abaixo:
+Tão logo encerrado o processo de treinamento do modelo, podemos analisar o seu desempenho. O resultado, mais uma vez, se encontra em sessão posterior, na 3.2.
+
+
+### 3. Resultados
+
+#### 3.1 Resultado da modelagem não supervisionada
+
+No nosso caso, após alguns testes, conseguimos definir 4 tópicos como o número ideal. Esses testes, inevitavelmente passam por tentativa e erro. Como o número de tópicos é arbitrário, embora a literatura aponte algumas possíveis métricas para a definição do melhor número de tópicos, por vezes realizamos a modelagem com alguns números diferentes para esses tópicos e posteriormente devemos analisar os resultados. 
+
+Feito a modelagem conforme algumas configurações e chegando no nosso numero ideal, vamos entender os nossos tópicos. Para tanto, as nuvens de palavras de cada tópico pode nos ajudar.
+
+![image](https://user-images.githubusercontent.com/85505337/137609850-1cb39c51-0295-4848-95fc-6658a4313dd4.png)
+
+Ainda assim, após análise de descrições sorteadas aleatoriamente, conseguimos inferir que os tópicos 0 e 2 se aproximam mais de narrações de roubo enquanto as descrições dos tópicos 1 e 3 mais se parecem com furtos. Conseguimos assim, termos confiança na variável independente que precisamos para realizarmos o treinamento de um modelo de classificação, que nos ajude na inferência de novas descrições.
+
+#### 3.2 Resultado da modelagem supervisionada
+
+Para analisar o resultado dessa etapa, a literatura nos disponibiliza diversas métricas. Aqui, temos quatro possíveis: acurácia, precisão, recall e f1-score.
+
+Dentre eles, podemos destacar a acurácia. Ela é a eficiência geral do modelo, de acordo com a base de teste. Com ela, sabemos quantas previsões corretar foram feitas, diante de todas as previsões feitas.
+
+Abaixo o report com o detalhamento do desempenho do modelo, seguido as métricas citadas:
 
 ![image](https://user-images.githubusercontent.com/85505337/137637283-95604b01-fc1e-4438-9ec5-d3cfe3beda4c.png)
 
-### 3. Conclusões
+
+### 4. Conclusões
 
 Durante o presente trabalho, pudemos explorar algoritmos de aprendizado não supervisionado, esse num primeiro momento, e também supervisionado. Conseguimos assim, abrangendo ambas as técnicas, gerar um modelo de classificação em uma base a priori sem uma variável independente.
 
