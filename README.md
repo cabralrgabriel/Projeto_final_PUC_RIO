@@ -14,7 +14,12 @@ Trabalho apresentado ao curso [BI MASTER](https://ica.puc-rio.ai/bi-master) como
 
 ### Resumo
 
-Definir um modelo que classifique um sinistro de automóvel, com base apenas na sua descrição, entre roubo ou furto.
+Definir um modelo que classifique um sinistro de automóvel, com base apenas na sua descrição, entre roubo ou furto. 
+
+Abrangeremos algoritmos de Machine Learning, tanto os que comumente chamamos de aprendizado não supervisionado quanto os chamados de aprendizado supervisionado. Importante ressaltar que as duas técnicas não serão concorrentes na resolução do nosso problema. Aqui, elas são complementares. Através da união delas chegamos no nosso resultado.
+
+Como veremos no decorrer do presente trabalho, obtivemos bons resultado para as duas abordagens. Fazendo, assim, com que obtivéssemos uma solução adequada para o problema proposto.
+
 
 ### 1. Introdução
 
@@ -40,7 +45,7 @@ Não vamos focar, aqui, nos modelos dos dois primeiros grupos. O terceiro grupo,
 
 Passada toda a parte de pré-processamento, entramos de fato no treinamento do modelo de segmentação. Aqui, escolhemos fazer a modelagem através de Latent Dirichlet Allocation — LDA. Esse é um dos mais populares modelos de segmentação por tópicos que existem na ciência de dados. Basicamente, ele busca definir a probabilidade de um tópico conter um determinado documento com base nas palavras que compõem esse documento. Ele se baseia em dois princípios, que cada documento é uma mistura de tópicos (com mais ou menos identificação com cada tópico) e cada tópico é uma mistura de palavras.
 
-Veremos melhor os resultados dessa etapa do trabalho na sessas 3.1.
+Veremos melhor os resultados dessa etapa do trabalho na sessão 3.1.
 
 #### 2.2 Gerando modelo de classificação (modelagem supervisionada)
 
@@ -73,7 +78,7 @@ Ainda assim, após análise de descrições sorteadas aleatoriamente, conseguim
 
 Para analisar o resultado dessa etapa, a literatura nos disponibiliza diversas métricas. Aqui, temos quatro possíveis: acurácia, precisão, recall e f1-score.
 
-Dentre eles, podemos destacar a acurácia. Ela é a eficiência geral do modelo, de acordo com a base de teste. Com ela, sabemos quantas previsões corretar foram feitas, diante de todas as previsões feitas.
+Dentre eles, podemos destacar a acurácia. Ela é a eficiência geral do modelo, de acordo com a base de teste. Com ela, sabemos quantas previsões corretas foram feitas, diante de todas as previsões feitas.
 
 Abaixo o report com o detalhamento do desempenho do modelo, seguido as métricas citadas:
 
